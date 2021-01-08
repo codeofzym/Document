@@ -1,0 +1,49 @@
+@startuml
+package "com.android.launcher3" {
+    class Launcher {
+
+    }
+}
+
+package "android.app" {
+    class Activity {
+
+    }
+}
+
+Activity <|-- Launcher
+
+
+package "com.sankuai.hardware.settings" {
+    class MainActivity {
+
+    }
+}
+
+package "androidx.appcompat.app" {
+    class AppCompatActivity {
+
+    }
+}
+
+AppCompatActivity <|-- MainActivity
+
+package "androidx.fragment.app" {
+    class FragmentActivity {
+
+    }
+}
+
+FragmentActivity <|-- AppCompatActivity
+
+package "androidx.core.app" {
+    class ComponentActivity {
+
+    }
+    note left: ReportFragment.injectIfNeededIn(this);
+}
+
+ComponentActivity <|-- FragmentActivity
+Activity <|-- ComponentActivity
+
+@enduml
